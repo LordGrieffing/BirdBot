@@ -6,13 +6,14 @@ Maybe it will record the types of birds it sees or something.
 
 
 List of things I need to get:
-- Raspberry pi 4
-- PIR (motion) sensor
-- Camera
+- [Completed] Raspberry pi 4
+- [Completed] PIR (motion) sensor
+- [Completed] Camera
 - Sim Card
 - Sim Card HAT for Pi
 - Battery pack
 - Solar panels
+- Wires
 
 List of things I need to do:
 - Program ROS2 node for sensor
