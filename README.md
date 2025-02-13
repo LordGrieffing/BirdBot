@@ -24,7 +24,7 @@ List of things I need to do:
 - design the case in on shape
 - Print the case
 - Figure out how to get the power bank to charge and power at the same time
-- Annotate Bird images for object detection
+- [Completed]Annotate Bird images for object detection (BirdSnap Data set is already annoted)
 - Build a YOLO object detection model
 
 
