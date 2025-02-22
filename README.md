@@ -26,6 +26,7 @@ List of things I need to do:
 - Figure out how to get the power bank to charge and power at the same time
 - [Completed]Annotate Bird images for object detection (BirdSnap Data set is already annoted)
 - Build a YOLO object detection model
+- Download all the images from images.txt
 
 
 About Power:
@@ -33,3 +34,8 @@ So With the the waveshare SIM HAT, a camera, and the pi 4 I think it would be sa
 up to 5A draw of power. 5A and 5V should mean that its using 25 WATTs of power. So whatever power solution I go with Ineed to be
 able to charge it with at least 25 Watts of power.
 
+About Models:
+There seems to be no mapping at all to the data in birdsnap that you can find from the parquet files to the images.txt files.
+This doesn't make the data unusable since the parquet files are indeed labeled for spieces. What it means Is I guess I will need to
+either train two models, one for object detection and a second for object classification. Or just download every image from the 
+images.txt file.
