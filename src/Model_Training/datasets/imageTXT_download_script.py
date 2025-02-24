@@ -10,6 +10,9 @@ def main():
     image_Output = "birdsnap/data/birdImages"
     label_Output = "birdsnap/data"
 
+    # Declare variable for flagging if download was a success
+    DLsuccess = False
+
     # Open image.txt as a dataframe with pandas
     imageTXT = "birdsnap/images.txt"
     imageDF = pd.read_csv(imageTXT, sep="\t", header=None)
@@ -36,19 +39,22 @@ def main():
                 f.write(response.content)
         
             print(f"Downloaded: {image_filename}")
+            DLsuccess = True
     
         except requests.exceptions.RequestException as e:
             print(f"Failed to download {img_url}: {e}")
+            DLsuccess = False
+
+        if DLsuccess:
+            # Get label information next
+            species_id = imageDF[3][i+1]
+            bb_x1 = imageDF[4][i+1]
+            bb_y1 = imageDF[5][i+1]
+            bb_x2 = imageDF[6][i+1]
+            bb_y2 = imageDF[7][i+1]
     
-        # Get label information next
-        species_id = imageDF[3][i+1]
-        bb_x1 = imageDF[4][i+1]
-        bb_y1 = imageDF[5][i+1]
-        bb_x2 = imageDF[6][i+1]
-        bb_y2 = imageDF[7][i+1]
-    
-        # Input label information
-        label_Frame.loc[i] = [species_id, bb_x1, bb_y1, bb_x2, bb_y2]
+            # Input label information
+            label_Frame.loc[i] = [species_id, bb_x1, bb_y1, bb_x2, bb_y2]
     
 
     # Saving label dataframe as a csv file
