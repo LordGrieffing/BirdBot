@@ -21,13 +21,18 @@ def main():
     label_Frame = pd.DataFrame(columns=["speices_id", "bb_x1", "bb_y1", "bb_x2", "bb_y2"])
 
     # Strip and organize information out of the birdsnap file
+    # len(imageDF)
+
+    # Counting variable to deal with unavaliable images
+    count = 0
+
     for i in range(len(imageDF)):
 
         # Get image url
         img_url = imageDF[0][i+1]
 
         # Download the image
-        image_filename = os.path.join(image_Output, f"image_{i}.jpg")
+        image_filename = os.path.join(image_Output, f"image_{count}.jpg")
 
         try:
             # Download the image
@@ -47,6 +52,7 @@ def main():
 
         if DLsuccess:
             # Get label information next
+            count += 1
             species_id = imageDF[3][i+1]
             bb_x1 = imageDF[4][i+1]
             bb_y1 = imageDF[5][i+1]
