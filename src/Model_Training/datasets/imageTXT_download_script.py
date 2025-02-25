@@ -26,6 +26,14 @@ def downloadImage(img_url, image_filename, retries = 3):
             print(f"SSL error on {img_url}, attempt {attempt+1}/{retries}: {e}")
             time.sleep(2)
 
+        except requests.exceptions.Timeout as e:
+            print(f"Timeout on {img_url}: {e}")
+            time.sleep(3)
+
+        except requests.exceptions.ConnectionError as e:
+            print(f"Connection error on {img_url}: {e}")
+            time.sleep(5)
+
     print(f"Skipping: {img_url}")
     return False
 
@@ -51,7 +59,7 @@ def main():
     # Counting variable to deal with unavaliable images
     count = 0
 
-    for i in range(50):
+    for i in range(len(imageDF)):
 
         # Get image url
         img_url = imageDF[0][i+1]
