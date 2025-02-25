@@ -1,8 +1,33 @@
 import pandas as pd
 import os
 import requests
+import time
 
+def downloadImage(img_url, image_filename, retries = 3):
 
+    for attempt in range(retries):
+        try:
+            # Download the image
+            response = requests.get(img_url, timeout=10)
+            response.raise_for_status()  # Raise an error for bad status codes
+        
+            # Save the image
+            with open(image_filename, "wb") as f:
+                f.write(response.content)
+        
+            print(f"Downloaded: {image_filename}")
+            return True
+    
+        except requests.exceptions.RequestException as e:
+            print(f"Failed to download {img_url}: {e}")
+            return False
+        
+        except requests.exceptions.SSLError as e:
+            print(f"SSL error on {img_url}, attempt {attempt+1}/{retries}: {e}")
+            time.sleep(2)
+
+    print(f"Skipping: {img_url}")
+    return False
 
 def main():
     
@@ -26,29 +51,16 @@ def main():
     # Counting variable to deal with unavaliable images
     count = 0
 
-    for i in range(len(imageDF)):
+    for i in range(50):
 
         # Get image url
         img_url = imageDF[0][i+1]
 
-        # Download the image
+        # Build image name
         image_filename = os.path.join(image_Output, f"image_{count}.jpg")
 
-        try:
-            # Download the image
-            response = requests.get(img_url, timeout=10)
-            response.raise_for_status()  # Raise an error for bad status codes
-        
-            # Save the image
-            with open(image_filename, "wb") as f:
-                f.write(response.content)
-        
-            print(f"Downloaded: {image_filename}")
-            DLsuccess = True
-    
-        except requests.exceptions.RequestException as e:
-            print(f"Failed to download {img_url}: {e}")
-            DLsuccess = False
+        # Download the image
+        DLsuccess = downloadImage(img_url, image_filename)
 
         if DLsuccess:
             # Get label information next
