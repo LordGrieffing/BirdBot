@@ -2,6 +2,7 @@ import pandas as pd
 import os
 import requests
 import time
+import csv
 
 def downloadImage(img_url, image_filename, retries = 3):
 
@@ -40,8 +41,8 @@ def downloadImage(img_url, image_filename, retries = 3):
 def main():
     
     # Declare output folders
-    image_Output = "birdsnap/data/birdImages/group1"
-    label_Output = "birdsnap/data"
+    image_Output = "birdsnap/data/birdImages"
+    label_Output = "birdsnap/data/label.csv"
 
     # Declare variable for flagging if download was a success
     DLsuccess = False
@@ -50,8 +51,13 @@ def main():
     imageTXT = "birdsnap/images.txt"
     imageDF = pd.read_csv(imageTXT, sep="\t", header=None)
 
-    # Build dataframe to store label information
-    label_Frame = pd.DataFrame(columns=["speices_id", "bb_x1", "bb_y1", "bb_x2", "bb_y2"])
+    # Build csv to store label information
+    label_headers = ["filename", "speices_id", "bb_x1", "bb_y1", "bb_x2", "bb_y2"]
+
+    if not os.path.exists(label_Output):
+        with open(label_Output, mode="w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(label_headers)
 
     # Strip and organize information out of the birdsnap file
     # len(imageDF)
@@ -59,7 +65,7 @@ def main():
     # Counting variable to deal with unavaliable images
     count = 0
 
-    for i in range(2500):
+    for i in range(20):
 
         # Get image url
         img_url = imageDF[0][i+1]
@@ -80,12 +86,11 @@ def main():
             bb_y2 = imageDF[7][i+1]
     
             # Input label information
-            label_Frame.loc[i] = [species_id, bb_x1, bb_y1, bb_x2, bb_y2]
-    
+            with open(label_Output, mode="a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow([image_filename, species_id, bb_x1, bb_y1, bb_x2, bb_y2])
 
-    # Saving label dataframe as a csv file
-    label_name = os.path.join(label_Output, "labels1.csv")
-    label_Frame.to_csv(label_name, index=False)
+
 
     # Hey Jacob you thought it would be smart to save without an index
     # So if you forgot what was what:
