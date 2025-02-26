@@ -40,7 +40,7 @@ def downloadImage(img_url, image_filename, retries = 3):
 def main():
     
     # Declare output folders
-    image_Output = "birdsnap/data/birdImages"
+    image_Output = "birdsnap/data/birdImages/group1"
     label_Output = "birdsnap/data"
 
     # Declare variable for flagging if download was a success
@@ -59,7 +59,7 @@ def main():
     # Counting variable to deal with unavaliable images
     count = 0
 
-    for i in range(len(imageDF)):
+    for i in range(2500):
 
         # Get image url
         img_url = imageDF[0][i+1]
@@ -84,7 +84,7 @@ def main():
     
 
     # Saving label dataframe as a csv file
-    label_name = os.path.join(label_Output, "labels.csv")
+    label_name = os.path.join(label_Output, "labels1.csv")
     label_Frame.to_csv(label_name, index=False)
 
     # Hey Jacob you thought it would be smart to save without an index
