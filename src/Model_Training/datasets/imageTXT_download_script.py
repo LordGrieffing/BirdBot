@@ -63,12 +63,13 @@ def main():
     # len(imageDF)
 
     # Counting variable to deal with unavaliable images
-    count = 0
+    count = 4451
+    ChkP = 4450
 
     for i in range(2500):
 
         # Get image url
-        img_url = imageDF[0][i+1]
+        img_url = imageDF[0][ChkP+i+1]
 
         # Build image name
         image_filename = os.path.join(image_Output, f"image_{count}.jpg")
@@ -79,11 +80,11 @@ def main():
         if DLsuccess:
             # Get label information next
             count += 1
-            species_id = imageDF[3][i+1]
-            bb_x1 = imageDF[4][i+1]
-            bb_y1 = imageDF[5][i+1]
-            bb_x2 = imageDF[6][i+1]
-            bb_y2 = imageDF[7][i+1]
+            species_id = imageDF[3][ChkP+i+1]
+            bb_x1 = imageDF[4][ChkP+i+1]
+            bb_y1 = imageDF[5][ChkP+i+1]
+            bb_x2 = imageDF[6][ChkP+i+1]
+            bb_y2 = imageDF[7][ChkP+i+1]
     
             # Input label information
             with open(label_Output, mode="a", newline="") as f:
