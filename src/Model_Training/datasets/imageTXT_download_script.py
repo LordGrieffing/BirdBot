@@ -65,7 +65,7 @@ def main():
     # Counting variable to deal with unavaliable images
     count = 0
 
-    for i in range(20):
+    for i in range(2500):
 
         # Get image url
         img_url = imageDF[0][i+1]
