@@ -1,0 +1,12 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+# TODO: Check number of classes
+nc: 500
+
+# TODO: add all the bird classes
+names: []
+
+
+# TODO: Check if I need to write all the licensing stuff here
