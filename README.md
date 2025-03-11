@@ -18,7 +18,7 @@ List of things I need to get:
 List of things I need to do:
 - Program ROS2 node for sensor
 - Figure out how to read PIR sensor data
-- Decide what data I am keeping
+- [Completed]Decide what data I am keeping
 - Program ROS2 service for data recording
 - Figure out how to SSH into it using the SIM card
 - design the case in on shape
@@ -26,7 +26,7 @@ List of things I need to do:
 - Figure out how to get the power bank to charge and power at the same time
 - [Completed]Annotate Bird images for object detection (BirdSnap Data set is already annoted)
 - Build a YOLO object detection model
-- Download all the images from images.txt
+- [Completed]Download all the images from images.txt
 
 
 About Power:
