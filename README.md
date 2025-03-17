@@ -26,6 +26,7 @@ List of things I need to do:
 - Figure out how to get the power bank to charge and power at the same time
 - [Completed]Annotate Bird images for object detection (BirdSnap Data set is already annoted)
 - Build a YOLO object detection model
+- Learn how to use Google Collab
 - [Completed]Download all the images from images.txt
 
 
@@ -39,3 +40,8 @@ There seems to be no mapping at all to the data in birdsnap that you can find fr
 This doesn't make the data unusable since the parquet files are indeed labeled for spieces. What it means Is I guess I will need to
 either train two models, one for object detection and a second for object classification. Or just download every image from the 
 images.txt file.
+
+About Training:
+So my GPU (gtx 1070) is way to underpowered to train this model. A friend who has a 3070 offered to let me use their device
+However I learned CUDA doesn't worrk on windows 11 which is what they use. So now I am planning on moving to google collab
+to train this model.
