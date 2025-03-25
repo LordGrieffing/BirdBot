@@ -28,6 +28,8 @@ List of things I need to do:
 - Build a YOLO object detection model
 - Learn how to use Google Collab
 - [Completed]Download all the images from images.txt
+- Get better data stretching
+- Turn yolos .pt file into .hef file
 
 
 About Power:
@@ -45,3 +47,5 @@ About Training:
 So my GPU (gtx 1070) is way to underpowered to train this model. A friend who has a 3070 offered to let me use their device
 However I learned CUDA doesn't worrk on windows 11 which is what they use. So now I am planning on moving to google collab
 to train this model.
+
+I may need to train in python instead of CLI. Python would let me set up more data manipulation to stretch my data.
