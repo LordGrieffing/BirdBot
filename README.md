@@ -17,7 +17,7 @@ List of things I need to get:
 
 List of things I need to do:
 - Program ROS2 node for sensor
-- Figure out how to read PIR sensor data
+- [Completed]Figure out how to read PIR sensor data
 - [Completed]Decide what data I am keeping
 - Program ROS2 service for data recording
 - Figure out how to SSH into it using the SIM card
