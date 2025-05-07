@@ -49,3 +49,12 @@ However I learned CUDA doesn't worrk on windows 11 which is what they use. So no
 to train this model.
 
 I may need to train in python instead of CLI. Python would let me set up more data manipulation to stretch my data.
+
+
+5/7/2025 Update:
+
+Change of plans No longer is the AI processing going to happen on board. Instead I am going to have data sent to an external device.
+New main board is going to be a Raspberry Pi zero 2w. 
+
+Now I need to decide how I am going to transfer data from the BirdBot to the external computer. I am thinking radio would be nice but not sure about 
+the logisitics of that. A sim card might be a better option.
