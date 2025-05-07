@@ -20,3 +20,13 @@ Batteries:
 
  https://www.gobilda.com/6a-bec-voltage-regulator-6-24v-input-5v-6v-8-4v-12v-output-screw-terminals/ (Maybe read more)
 
+
+
+
+ SIM Card solutions:
+ https://blues.com/blog/easiest-cellular-raspberry-pi-zero/ (Seems alright, not sure if limited to 500Mb though)
+
+ https://thepihut.com/products/4g-phat-for-raspberry-pi-lte-cat-4-3g-2g-with-gnss-positioning (Looks nice but is pretty expensive)
+
+ 
+
